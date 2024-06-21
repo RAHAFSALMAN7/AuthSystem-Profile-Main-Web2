@@ -1,0 +1,58 @@
+{{> messages }}
+
+
+ 
+<!--   <% if (messages.error) { %>
+  <p style="color:red"><%- messages.error %></p>
+<% } %> -->
+ <h3> Asset List</h3>
+
+<form action="/users" method="GET">
+    <button class="">My Profile</button>
+</form>
+<form action="/myasset" method="GET">
+    <button class="">My Asset</button>
+</form>
+<form action="/auth/logout" method="DELETE">
+<button class="">LogOut</button>
+</form>
+<table class="table table-striped">
+  <div>
+    
+    
+    
+</div>   
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Category</th>
+            <th>Status</th>
+          
+            
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.productId}}</td>
+            <td>{{this.productName}}</td>
+            <td>{{this.productCategory}}</td>
+            {{#if this.user_email}}
+            <td>Being used by {{this.user_email}}</td>
+            {{else}}
+            <td>available</td>
+            {{/if}}
+
+            <td>
+                {{#if this.user_email}}
+                {{!-- <a href="/asset/useraddasset/{{this.productId}}"  onclick="return confirm('Are you sure to remove this asset ?');"><i class="fa fa-trash" aria-hidden="true"></i></a> --}}
+                {{else}}
+                <a href="/asset/useraddasset/{{this.productId}}"  onclick="return confirm('Are you sure to add this asset ?');"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                {{/if}}
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

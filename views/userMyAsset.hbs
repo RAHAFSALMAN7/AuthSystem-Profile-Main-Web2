@@ -1,0 +1,82 @@
+{{> messages }}
+
+
+<head>
+<title>Asset Management System</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/stylesheets/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+        <div id = "page" >
+        <header>
+            <a title="asset">
+                <div class="=logo">
+                    <span id ="title" style="color: #A2B242" ><i class="fa fa-laptop" aria-hidden="true" style="color:#323643 ;font-size  : 30px;  ma"></i>   Asset Management System</span> 
+               
+            </a>
+    
+            </div>
+        </header>
+    </div> 
+    <div class="HR">
+                <nav >
+             <div class="" style="margin :10 px">
+               <form  action ="/userassetpage" method ="GET" >
+               <button  class="button button1 "> HOME </button>   
+               </form>
+               </div>
+                <form action="/users" method="GET">
+                    <button class=" button button2">My Profile</button>
+                </form>
+
+                <form action="/myasset" method="GET">
+                    <button class=" button button3">My Asset</button>
+                </form>
+                <form action="/auth/logout" method="DELETE">
+                <button class=" button button4">LogOut</button>
+
+                </form>
+
+            
+            </nav> 
+</div>
+
+ <h3> Asset List</h3>
+
+
+<table class="table table-striped">
+  <div>
+    
+    
+    
+</div>   
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Category</th>
+          <th></th>
+          
+            
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.productId}}</td>
+            <td>{{this.productName}}</td>
+            <td>{{this.productCategory}}</td>
+          
+           
+            <td>
+             <a href="/asset/userdeleteasset/{{this.productId}}"  onclick="return confirm('Are you sure to remove this asset ?');"><i class="fa fa-trash" aria-hidden="true"></i></a>
+            </td>
+               
+                
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
+</body>

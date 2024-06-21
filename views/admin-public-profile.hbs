@@ -1,0 +1,100 @@
+
+{{> messages }}
+<head>
+    <title>Asset Management System</title>
+    	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/stylesheets/style.css">
+</head>
+<body>
+ <div id = "page" >
+        <header>
+            <a title="asset">
+                <div class="=logo">
+                    <span id ="title" style="color: #A2B242" ><i class="fa fa-laptop" aria-hidden="true" style="color:#323643 ;font-size  : 30px;  "></i>   Asset Management System</span> 
+            </a>
+    
+            </div>
+        </header>
+    </div> 
+    <div class="HR">
+                <nav >
+             <div class="" style="margin :10 px">
+               <form  action ="/assetpage" method ="GET" >
+               <button  class="button button1 "> HOME </button>   
+               </form>
+               </div>
+                <form action="/users" method="GET">
+                    <button class=" button button2">My Profile</button>
+                </form>
+
+                <form action="/myasset" method="GET">
+                    <button class=" button button3">My Asset</button>
+                </form>
+               
+                <form action='/asset/addasset' method ='POST'><button class="button button4" > Add New Asset</button> 
+
+</form>
+         <button class="button button4"><a href="/auth/register" style="color: #fff" > Add New Employee</a> </button>
+ <form action="/auth/logout" method="DELETE">
+                <button class=" button button4">LogOut</button>
+                </form>
+            
+            </nav> 
+</div>
+{{#if email}}
+<div class="profile">
+<br> 
+<center>
+ <h2>{{ first }}'s profile</h2>
+</center>
+<div class="content" style="margin-left: 15%; margin-top: 30px; " >
+  <h2>First Name :           {{ first }}  </h2>
+{{!-- <h2> {{ first }} </h2> --}}
+<br>
+<h2> Last Name :  {{ last }}</h2>
+<br>
+<h2>  Email : {{ email }}</h2>
+
+      <a href="/auth/change" style="color: #A2B242 ; font-size :20px" > Change password</a>
+
+{{/if}}
+
+</body>
+</div>
+
+
+
+
+
+
+{{!-- 
+<link rel="stylesheet" type="text/css" href="../stylesheets/style1.css">
+
+{{> messages }}
+{{#if email}}
+<div class="container1">
+
+<h2>{{ first }}'s profile</h2>
+<table class="table">
+  <tr>
+    <td>First Name:</td>
+    <td>{{ first }}</td>
+  </tr>
+  <tr>
+    <td>Last Name</td>
+    <td>{{ last }}</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>{{ email }}</td>
+  </tr>
+</table>
+
+<form action="/assetpage" method="GET">
+<button class="">All Asset</button>
+</form>
+<a href="/auth/change">Change password</a>
+</div>
+
+{{/if}} --}}

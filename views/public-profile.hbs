@@ -1,0 +1,63 @@
+
+{{> messages }}
+
+{{#if email}}<head>
+    <title>Asset Management System</title>
+    	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/stylesheets/style.css">
+</head>
+<body>
+ <div id = "page" >
+        <header>
+            <a title="asset">
+                <div class="=logo">
+                    <span id ="title" style="color: #A2B242" ><i class="fa fa-laptop" aria-hidden="true" style="color:#323643 ;font-size  : 30px;  "></i>   Asset Management System</span> 
+            </a>
+    
+            </div>
+        </header>
+    </div> 
+    <div class="HR">
+                <nav >
+             <div class="" style="margin :10 px">
+               <form  action ="/userassetpage" method ="GET" >
+               <button  class="button button1 "> HOME </button>   
+               </form>
+               </div>
+                <form action="/users" method="GET">
+                    <button class=" button button2">My Profile</button>
+                </form>
+
+                <form action="/myasset" method="GET">
+                    <button class=" button button3">My Asset</button>
+                </form>
+                <form action="/auth/logout" method="DELETE">
+                <button class=" button button4">LogOut</button>
+                </form>
+          
+
+            
+            </nav> 
+</div>
+<div class="profile">
+<br> 
+<center>
+ <h2>{{ first }}'s profile</h2>
+</center>
+<div class="content" style="margin-left: 15%; margin-top: 30px; " >
+  <h2>First Name :           {{ first }}  </h2>
+{{!-- <h2> {{ first }} </h2> --}}
+<br>
+<h2> Last Name :  {{ last }}</h2>
+<br>
+<h2>  Email : {{ email }}</h2>
+      <a href="/auth/change" style="color: #A2B242 ; font-size :20px" > Change password</a>
+
+{{/if}}
+
+</body>
+</div>
+
+
+

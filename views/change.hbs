@@ -1,0 +1,62 @@
+
+<head>
+<title>Asset Management System</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/stylesheets/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+        <div id = "page" >
+        <header>
+            <a title="asset">
+                <div class="=logo">
+                    <span id ="title" style="color: #A2B242" ><i class="fa fa-laptop" aria-hidden="true" style="color:#323643 ;font-size  : 30px;  ma"></i>   Asset Management System</span> 
+               
+            </a>
+    
+            </div>
+        </header>
+    </div> 
+    <div class="HR">
+                <nav >
+             <div class="" style="margin :10 px">
+               
+                <form action="/users" method="GET">
+                    <button class=" button button2">My Profile</button>
+                </form>
+
+               
+                <form action="/auth/logout" method="DELETE">
+                <button class=" button button4">LogOut</button>
+                </form>
+
+
+            
+            </nav> 
+</div> 
+
+<form action="/auth/change" method="POST">
+<center style="margin-top :150px">
+
+  <div class="form-group">
+    <label for="password">Old Password:</label>
+    <input type="password" class="form-control" name="password" id="oldPassword">
+ </div>
+ <br>
+
+
+ <div class="form-group">
+    <label for="newPassword">New Password:</label>
+    <input type="password" class="form-control" name="newPassword" id="newPassword">
+ </div>
+<br>
+ <div class="form-group">
+    <label for="confPassword">Repet New Password:</label>
+    <input type="password" class="form-control" name="confPassword" id="confPassword">
+ </div>
+ <br>
+  <button class="button button4 " style="margin-left :40% ">Save Password</button>
+
+</form>
+
+</div>  </center>

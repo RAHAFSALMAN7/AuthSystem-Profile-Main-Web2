@@ -1,0 +1,46 @@
+{{> messages }}
+
+
+ 
+<!--   <% if (messages.error) { %>
+  <p style="color:red"><%- messages.error %></p>
+<% } %> -->
+ <h3> Asset List</h3>
+
+<form action="/userassetpage" method="GET">
+    <button class="">All Asset</button>
+</form>
+<table class="table table-striped">
+  <div>
+    
+    
+    
+</div>   
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Category</th>
+          
+          
+            
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.productId}}</td>
+            <td>{{this.productName}}</td>
+            <td>{{this.productCategory}}</td>
+          
+           
+            <td>
+             <a href="/asset/userdeleteasset/{{this.productId}}"  onclick="return confirm('Are you sure to remove this asset ?');"><i class="fa fa-trash" aria-hidden="true"></i></a>
+            </td>
+               
+                
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

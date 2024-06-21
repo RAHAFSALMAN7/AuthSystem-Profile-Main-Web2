@@ -1,0 +1,94 @@
+{{{> messages }}
+<head>
+<title>Asset Management System</title>
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/stylesheets/style.css">
+	<link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
+
+</head>
+<body>
+        <div id = "page" >
+        <header>
+            <a title="asset">
+                <div class="=logo">
+                    <span id ="title" style="color: #A2B242" ><i class="fa fa-laptop" aria-hidden="true" style="color:#323643 ;font-size  : 30px;  ma"></i>   Asset Management System</span> 
+               
+            </a>
+    
+            </div>
+        </header>
+    </div> 
+    <div class="HR">
+                <nav >
+             <div class="" style="margin :10 px">
+               <form  action ="/assetpage" method ="GET" >
+               <button  class="button button1 "> HOME </button>   
+               </form>
+               </div>
+                <form action="/users" method="GET">
+                    <button class=" button button2">My Profile</button>
+                </form>
+
+                <form action="/myasset" method="GET">
+                    <button class=" button button3">My Asset</button>
+                </form>
+                
+                <form action='/asset/addasset' method ='POST'><button class="button button4" > Add New Asset</button> 
+
+</form>
+         <button class="button button4"><a href="/auth/register" style="color: #fff" > Add New Employee</a> </button>
+
+            <form action="/auth/logout" method="DELETE">
+                <button class=" button button4">LogOut</button>
+                </form>
+            </nav> 
+</div>
+ <h3> Asset List</h3>
+
+
+
+<table class="table table-striped"> 
+  <div>  
+</div>   
+    <thead>
+        <tr>
+            <th>Product Id</th>
+            <th>Product Name</th>
+            <th>Product Category</th>
+            <th>Status</th>
+            <th>Add</th>
+            <th>Delete</th>
+
+            
+        </tr>
+    </thead>
+
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.productId}}</td>
+            <td>{{this.productName}}</td>
+            <td>{{this.productCategory}}</td>
+            {{#if this.user_email}}
+            <td>Being used by {{this.user_email}}</td>
+            {{else}}
+              
+              <td>available</td>
+         
+            {{/if}}
+            <td>
+                {{#if this.user_email}}
+                
+                {{else}}
+                <a href="/asset/useraddasset/{{this.productId}}"  onclick="return confirm('Are you sure to add this asset ?');"><i class="fa fa-plus" aria-hidden="true"></i></a>
+                {{/if}}
+                {{!-- <a href="/asset/edit/{{this.productId}}" onclick="return confirm('Are you sure to ban this record ?');"><i class="fa fa-ban fa-lg" aria-hidden="true"></i></a> --}}
+               </td> 
+               
+               <td>
+               <a href="/asset/delete/{{this.productId}}" onclick="return confirm('Are you sure to delete this record ?');"><i class="fa fa-trash fa-lg" aria-hidden="true"></i></a>
+               </td>
+            
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
